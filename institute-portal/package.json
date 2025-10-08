@@ -1,0 +1,21 @@
+{
+  "name": "institute-portal",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "server": "npm --workspace server run dev",
+    "server:build": "npm --workspace server run build",
+    "client": "npm --workspace client run dev",
+    "client:build": "npm --workspace client run build",
+    "dev": "concurrently -n server,client -c blue,green \"npm:server\" \"npm:client\"",
+    "build": "npm run server:build && npm run client:build",
+    "postinstall": "echo \"Root install complete\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
